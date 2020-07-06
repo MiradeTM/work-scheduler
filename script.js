@@ -1,67 +1,97 @@
 var currentDay = $('#currentDay');
 currentDay.text(moment().format('LLLL'));
+ var currentTime = moment().format('hA');
+ var nineSlot = moment().format('9A')
+console.log(nineSlot)
 
+var nineAM = $('#9AM').val();
+var tenAM = $('#10AM').val();
+var elevenAM = $('#11AM').val();
+var twelvePM = $('#12PM').val();
+var onePM = $('#1PM').val();
+var twoPM = $('#2PM').val();
+var threePM = $('#3PM').val();
+var fourPM = $('#4PM').val();
+var fivePM = $('#5PM').val();
+var sixPM = $('#6PM').val();
 
-var nineAM = $('#9AM').val('');
-var tenAM = $('#10AM').val('');
-var elevenAM = $('#11AM').val('');
-var twelvePM = $('#12PM').val('');
-var onePM = $('#1PM').val('');
-var twoPM = $('#2PM').val('');
-var threePM = $('#3PM').val('');
-var fourPM = $('#4PM').val('');
-var fivePM = $('#5PM').val('');
-var sixPM = $('#6PM').val('');
+var nineSlot =moment().format('9AM')
+var tenSlot= moment().format('10AM')
+var elevenSlot= moment().format('11AM')
+var twelveSlot= moment().format('12PM')
+var oneSlot= moment().format('1PM')
+var twoSlot= moment().format('2PM')
+var threeSlot= moment().format('3PM')
+var fourSlot= moment().format('4M')
+var fiveSlot= moment().format('5PM')
+var sixSlot= moment().format('6PM')
 
+$('#nineSlot').text(moment().format('9AM'));
+$('#tenSlot').text(moment().format('10AM'));
+$('#elevenSlot').text(moment().format('11AM'));
+$('#twelveSlot').text(moment().format('12PM'));
+$('#oneSlot').text(moment().format('1PM'));
+$('#twoSlot').text(moment().format('2PM'));
+$('#threeSlot').text(moment().format('3PM'));
+$('#fourSlot').text(moment().format('4M'));
+$('#fiveSlot').text(moment().format('5PM'));
+$('#sixSlot').text(moment().format('6PM'));
 
 $('#setNine').click(function(){
-    $('#nine').text(nineAM);
+    $('#nine').html(nineAM);
     localStorage.setItem("NineAM", nineAM);
-    $('#9AM').reset('');
+    // $('#9AM').empty('');
 });
 $('#setTen').click(function(){
-    $('#ten').text(tenAM);
+    $('#ten').html(tenAM);
     localStorage.setItem("TenAM", tenAM);
-    $('#10AM').reset('');
+    // $('#10AM').empty('');
 })
 $('#setEleven').click(function(){
-    $('#eleven').text(elevenAM);
+    $('#eleven').html(elevenAM);
     localStorage.setItem("ElevenAM", elevenAM);
-    $('#11AM').reset('');
+    // $('#11AM').empty('');
 })
 $('#setTwelve').click(function(){
-    $('#twelve').text(twelvePM);
+    $('#twelve').html(twelvePM);
     localStorage.setItem("TwelvePM", PM);
-    $('#12PM').reset('');
+    // $('#12PM').empty('');
 })
 $('#setOne').click(function(){
-    $('#one').text(onePM);
+    $('#one').html(onePM);
     localStorage.setItem("OnePM", onePM);
-    $('#1PM').reset('');
+    // $('#1PM').empty('');
 })
 $('#setTwo').click(function(){
-    $('#two').text(twoPM);
+    $('#two').html(twoPM);
     localStorage.setItem("TwoPM", twoPM);
-    $('#2PM').reset('');
+    // $('#2PM').empty('');
 })
 $('#setThree').click(function(){
-    $('#three').text(threePM);
+    $('#three').html(threePM);
     localStorage.setItem("ThreePM", threePM);
-    $('#3PM').reset('');
+    // $('#3PM').empty('');
 })
 $('#setFour').click(function(){
-    $('#four').text(fourPM);
+    $('#four').html(fourPM);
     localStorage.setItem("FourPM", fourPM);
-    $('#4PM').reset('');
+//     $('#4PM').empty('');
 })
 $('#setFive').click(function(){
-    $('#five').text(fivePM);
+    $('#five').html(fivePM);
     localStorage.setItem("FivePM", fivePM);
-    $('#5PM').reset('');
+    // $('#5PM').empty('');
 })
 $('#setSix').click(function(){
-    $('#six').text(sixPM);
+    $('#six').html(sixPM);
     localStorage.setItem("SixPM", sixPM);
-    $('#6PM').reset('');
+    // $('#6PM').empty('');
 })
 
+// if (timeSlot == moment().format('hA')){
+//     $().attr('id', '.present');
+// } else if (timeSlot < moment().format('hA')){
+//     $().attr('id', '.future');
+// } else if (timeSlot > moment().format('hA')){
+//     $().attr('id', '.past');
+// }
