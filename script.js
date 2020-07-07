@@ -1,97 +1,45 @@
-var currentDay = $('#currentDay');
-currentDay.text(moment().format('LLLL'));
- var currentTime = moment().format('hA');
- var nineSlot = moment().format('9A')
-console.log(nineSlot)
+//displays current date and time in header
+$('#currentDay').text('It is currently ' + moment().format('LLLL'));
 
-var nineAM = $('#9AM').val();
-var tenAM = $('#10AM').val();
-var elevenAM = $('#11AM').val();
-var twelvePM = $('#12PM').val();
-var onePM = $('#1PM').val();
-var twoPM = $('#2PM').val();
-var threePM = $('#3PM').val();
-var fourPM = $('#4PM').val();
-var fivePM = $('#5PM').val();
-var sixPM = $('#6PM').val();
+//takes info given by user and stores in local storage
+$('.saveBtn').on('click', function(){
+    var value = $(this).siblings('.description').val();
+    var time = $(this).parent().attr('id');
+    localStorage.setItem(time, value)
+})
+//compares time blocks to current hour and changes background color
+function hourUpdater(){
+    var currentHour = moment().hour();
+    $('.time-block').each(function(){
+        var blockHour = parseInt($(this).attr('id').split('-')[1]);
+        if(blockHour < currentHour){
+            $('.description').addClass('past');
+        } else if (blockHour === currentHour){
+            $('.description').addClass('present');
+        }else{
+            $('.description').addClass('future');
+        }
+    })
+}
+hourUpdater()
+var interval = setInterval(hourUpdater, 15000);
 
-var nineSlot =moment().format('9AM')
-var tenSlot= moment().format('10AM')
-var elevenSlot= moment().format('11AM')
-var twelveSlot= moment().format('12PM')
-var oneSlot= moment().format('1PM')
-var twoSlot= moment().format('2PM')
-var threeSlot= moment().format('3PM')
-var fourSlot= moment().format('4M')
-var fiveSlot= moment().format('5PM')
-var sixSlot= moment().format('6PM')
+$('.nine').val(localStorage.getItem('hour-9'))
 
-$('#nineSlot').text(moment().format('9AM'));
-$('#tenSlot').text(moment().format('10AM'));
-$('#elevenSlot').text(moment().format('11AM'));
-$('#twelveSlot').text(moment().format('12PM'));
-$('#oneSlot').text(moment().format('1PM'));
-$('#twoSlot').text(moment().format('2PM'));
-$('#threeSlot').text(moment().format('3PM'));
-$('#fourSlot').text(moment().format('4M'));
-$('#fiveSlot').text(moment().format('5PM'));
-$('#sixSlot').text(moment().format('6PM'));
+$('.ten').val(localStorage.getItem('hour-10'))
 
-$('#setNine').click(function(){
-    $('#nine').html(nineAM);
-    localStorage.setItem("NineAM", nineAM);
-    // $('#9AM').empty('');
-});
-$('#setTen').click(function(){
-    $('#ten').html(tenAM);
-    localStorage.setItem("TenAM", tenAM);
-    // $('#10AM').empty('');
-})
-$('#setEleven').click(function(){
-    $('#eleven').html(elevenAM);
-    localStorage.setItem("ElevenAM", elevenAM);
-    // $('#11AM').empty('');
-})
-$('#setTwelve').click(function(){
-    $('#twelve').html(twelvePM);
-    localStorage.setItem("TwelvePM", PM);
-    // $('#12PM').empty('');
-})
-$('#setOne').click(function(){
-    $('#one').html(onePM);
-    localStorage.setItem("OnePM", onePM);
-    // $('#1PM').empty('');
-})
-$('#setTwo').click(function(){
-    $('#two').html(twoPM);
-    localStorage.setItem("TwoPM", twoPM);
-    // $('#2PM').empty('');
-})
-$('#setThree').click(function(){
-    $('#three').html(threePM);
-    localStorage.setItem("ThreePM", threePM);
-    // $('#3PM').empty('');
-})
-$('#setFour').click(function(){
-    $('#four').html(fourPM);
-    localStorage.setItem("FourPM", fourPM);
-//     $('#4PM').empty('');
-})
-$('#setFive').click(function(){
-    $('#five').html(fivePM);
-    localStorage.setItem("FivePM", fivePM);
-    // $('#5PM').empty('');
-})
-$('#setSix').click(function(){
-    $('#six').html(sixPM);
-    localStorage.setItem("SixPM", sixPM);
-    // $('#6PM').empty('');
-})
+$('.eleven').val(localStorage.getItem('hour-11'))
 
-// if (timeSlot == moment().format('hA')){
-//     $().attr('id', '.present');
-// } else if (timeSlot < moment().format('hA')){
-//     $().attr('id', '.future');
-// } else if (timeSlot > moment().format('hA')){
-//     $().attr('id', '.past');
-// }
+$('.twelve').val(localStorage.getItem('hour-12'))
+
+$('.one').val(localStorage.getItem('hour-13'))
+
+$('.two').val(localStorage.getItem('hour-14'))
+
+$('.three').val(localStorage.getItem('hour-15'))
+
+$('.four').val(localStorage.getItem('hour-16'))
+
+$('.five').val(localStorage.getItem('hour-17'))
+
+$('.six').val(localStorage.getItem('hour-18'))
